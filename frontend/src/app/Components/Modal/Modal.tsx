@@ -10,19 +10,16 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
 	useEffect(() => {
-		const content = modalRef.current
-		if (!content) return
 		const escapeListener = (event: KeyboardEvent) => {
 			if (event.key == 'Escape' && typeof closeCb == 'function') {
 				closeCb()
 			}
 		}
-		content.scrollTo(0, content.scrollHeight)
 		parent.addEventListener('keydown', escapeListener)
 		return () => {
 			parent.removeEventListener('keydown', escapeListener)
 		}
-	}, [modalRef.current, closeCb, parent])
+	}, [closeCb, parent])
 	return createPortal(
 		<div
 			className={styles.modal}

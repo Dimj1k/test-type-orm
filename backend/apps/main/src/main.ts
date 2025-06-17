@@ -9,6 +9,7 @@ import {
     TimeoutInterceptor,
     XmlBuilderInterceptor,
 } from './shared/interceptors'
+import { NextFunction, Request, Response } from 'express'
 
 async function bootstrap() {
     const app = await NestFactory.create<NestExpressApplication>(AppModule)
@@ -23,11 +24,14 @@ async function bootstrap() {
     ])
     app.enableCors({
         methods: '*',
-        // maxAge: 5,
+        maxAge: 86400,
         origin: (origin, cb) => {
             cb(null, whiteList.has(origin) || !origin)
         },
         credentials: true,
+    })
+    app.use(({ headers }: Request, res: Response, next: NextFunction) => {
+        next()
     })
     app.useGlobalInterceptors(
         // new XmlBuilderInterceptor(),

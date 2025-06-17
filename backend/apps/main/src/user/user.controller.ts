@@ -30,6 +30,7 @@ import { OnlyHttpExceptionFilter, RpcExceptionFilter } from '../shared/filters'
 import { UuidPipe } from '../shared/pipes'
 import { isEmail } from 'class-validator'
 
+let counter = 0
 export type UserFromMongo = Pick<User, 'email' | 'password' | 'info'>
 
 @UseFilters(RpcExceptionFilter, OnlyHttpExceptionFilter)

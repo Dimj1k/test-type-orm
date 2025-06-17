@@ -1,8 +1,8 @@
 'use client'
 import cn from 'classnames'
 import _Link, {LinkProps} from 'next/link'
-import {usePathname, useRouter} from 'next/navigation'
-import {CSSProperties, KeyboardEvent, PropsWithChildren} from 'react'
+import {usePathname} from 'next/navigation'
+import {CSSProperties, HTMLProps, PropsWithChildren} from 'react'
 import styles from './Link.module.css'
 import {Url} from 'next/dist/shared/lib/router/router'
 
@@ -13,7 +13,11 @@ export default function Link({
 	here,
 	...props
 }: PropsWithChildren<
-	LinkProps & {style?: CSSProperties; additionalhrefs?: Url[]; here?: boolean}
+	LinkProps & {
+		style?: CSSProperties
+		additionalhrefs?: Url[]
+		here?: boolean
+	}
 >) {
 	const pathName = usePathname()
 	return (

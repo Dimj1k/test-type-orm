@@ -4,6 +4,7 @@ import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import StoreProvider from '@/Rtk/provider'
 import {AppNotification} from './Components/AppNotification'
+import {IsOfflineMessage} from './Components/IsOfflineMessage'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -22,6 +23,7 @@ export default function RootLayout({
 					<AppNotification />
 					<Header />
 					<main role="main">
+						<IsOfflineMessage />
 						<div className="content">{children}</div>
 					</main>
 					<Footer />

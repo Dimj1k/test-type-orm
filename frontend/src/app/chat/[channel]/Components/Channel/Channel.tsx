@@ -1,5 +1,5 @@
 import Button from '@/app/Components/Button/Button'
-import {FormEvent, useCallback, useContext, useEffect, useRef, useState} from 'react'
+import {FormEvent, useContext, useEffect, useRef, useState} from 'react'
 import {PublicationContext, type Subscription} from 'centrifuge'
 import {Input} from '@/app/Components/Input'
 import Form from '@/app/Components/Form/Form'
@@ -39,7 +39,7 @@ export const Channel: React.FC<{channel: string}> = ({channel}) => {
 			setSub(null)
 			historyUpdate = false
 		}
-	}, [contentRef.current, centrifuge, setSub, channel])
+	}, [centrifuge, setSub, channel])
 
 	useEffect(() => {
 		const content = contentRef.current

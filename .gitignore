@@ -9,6 +9,10 @@
 /frontend/node_modules
 /frontend/build
 
+/frontend-refine+antd/.next
+/frontend-refine+antd/node_modules
+/frontend-refine+antd/build
+
 # centrifugo
 /centrifugo/centrifugo.exe
 /centrifugo/CHANGELOG.md
